@@ -31,7 +31,8 @@ RUN git config --global user.name "rickkky" \
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
     && source ~/.zshrc \
     && nvm install --lts \
-    && nvm use --lts
+    && nvm use --lts \
+    && corepack enable
 
 VOLUME [ "/home/ricky/codespace" ]
 
