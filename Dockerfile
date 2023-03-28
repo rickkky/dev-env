@@ -34,6 +34,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | b
     && nvm use --lts \
     && corepack enable
 
+VOLUME [ "/home/ricky/codespace" ]
+
 
 
 
