@@ -16,7 +16,7 @@ docker start dev-box
 docker exec -it dev-box zsh
 ```
 
-Then in the container, run:
+Rewrite the permission of codespace volume:
 
 ```bash
 sudo chown 777 codespace
