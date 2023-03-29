@@ -19,5 +19,5 @@ docker exec -it dev-box zsh
 Rewrite the permission of codespace volume:
 
 ```bash
-sudo chown 777 codespace
+sudo chown 777 /home/ricky/codespace
 ```
