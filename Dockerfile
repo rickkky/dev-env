@@ -22,7 +22,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 SHELL ["/bin/zsh", "-c"]
 
 # configure git
-RUN git config --global user.name "ricky" \
+RUN git config --global user.name "rickkky" \
     && git config --global user.email "rickkky@foxmail.com" \
     && git config --global core.editor vim \
     && git config --global core.ignorecase false
