@@ -3,13 +3,13 @@
 ## build
 
 ```bash
-docker build -t rickkky/dev-env:0.0.3 .
+docker build -t rickkky/dev-env:0.0.5 .
 ```
 
 ## start
 
 ```bash
-docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.3 zsh
+docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.5 zsh
 
 docker start dev-box
 
