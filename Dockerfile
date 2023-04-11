@@ -17,8 +17,8 @@ WORKDIR /home/ricky
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     # change theme
     && sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' ~/.zshrc \
-    # set language
-    && echo '\nexport LANG="zh_CN.UTF-8"' >> ~/.zshrc \
+    # enable display zh_CN chars
+    && echo '\nexport LC_CTYPE="zh_CN.UTF-8"' >> ~/.zshrc \
     # change default shell
     && chsh -s $(which zsh)
 
