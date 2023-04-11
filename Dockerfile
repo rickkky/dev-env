@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 # install basic deps
 RUN apt-get update \
-    && apt-get install -y zsh git vim sudo curl
+    && apt-get install -y zsh git vim sudo curl language-pack-zh-hans
 
 # prepare user 'ricky'
 RUN useradd -m -s /bin/zsh ricky \
@@ -15,7 +15,11 @@ WORKDIR /home/ricky
 
 # prepare zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+    # change theme
     && sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' ~/.zshrc \
+    # set language
+    && echo 'export LANG="zh_CN.UTF-8"' >> ~/.zshrc \
+    # change default shell
     && chsh -s $(which zsh)
 
 # use zsh
