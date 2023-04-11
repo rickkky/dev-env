@@ -18,7 +18,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     # change theme
     && sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' ~/.zshrc \
     # set language
-    && echo 'export LANG="zh_CN.UTF-8"' >> ~/.zshrc \
+    && echo '\nexport LANG="zh_CN.UTF-8"' >> ~/.zshrc \
     # change default shell
     && chsh -s $(which zsh)
 
