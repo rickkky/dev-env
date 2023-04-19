@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 # install basic deps
 RUN apt-get update \
-    && apt-get install -y zsh git vim sudo curl language-pack-zh-hans
+    && apt-get install -y systemd zsh git vim sudo curl language-pack-zh-hans
 
 # prepare user 'ricky'
 RUN useradd -m -s /bin/zsh ricky \
