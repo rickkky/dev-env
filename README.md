@@ -1,15 +1,15 @@
 # dev-env
 
-## build
+## Build
 
 ```bash
-docker build -t rickkky/dev-env:0.0.5 .
+docker build --no-cache -t rickkky/dev-env:0.0.8 .
 ```
 
-## start
+## Start
 
 ```bash
-docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.5 zsh
+docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.8 zsh
 
 docker start dev-box
 
@@ -21,3 +21,7 @@ Rewrite the permission of codespace volume:
 ```bash
 sudo chown 777 /home/ricky/codespace
 ```
+
+## SSH
+
+[Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
