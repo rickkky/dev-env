@@ -6,7 +6,6 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list \
     && sed -i 's/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 
-
 # no interactive when install packages
 ENV DEBIAN_FRONTEND=noninteractive
 # install basic deps
@@ -44,6 +43,14 @@ RUN sh -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/oh
     && sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' ~/.zshrc \
     # enable display zh_CN chars
     && echo '\nexport LC_CTYPE="zh_CN.UTF-8"' >> ~/.zshrc \
+    # install zsh-autosuggestion plugin
+    && git clone https://ghproxy.com/https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
+    # change autosuggestion config
+    && echo '\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"' >> ~/.zshrc \
+    # install zsh-syntax-highlighting plugin
+    && git clone https://ghproxy.com/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
+    # set plugins
+    && sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/g' ~/.zshrc \
     # change default shell
     && chsh -s $(which zsh)
 
