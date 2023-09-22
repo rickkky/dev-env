@@ -50,7 +50,7 @@ RUN sh -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/oh
     # install zsh-syntax-highlighting plugin
     && git clone https://ghproxy.com/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
     # set plugins
-    && sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/g' ~/.zshrc \
+    && sed -i 's/plugins=(git)/plugins=(git ssh-agent zsh-syntax-highlighting zsh-autosuggestions)/g' ~/.zshrc \
     # change default shell
     && chsh -s $(which zsh)
 
