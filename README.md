@@ -3,13 +3,13 @@
 ## Build
 
 ```bash
-docker build --no-cache -t rickkky/dev-env:0.0.10 .
+docker build --no-cache -t rickkky/dev-env:0.0.11 .
 ```
 
 ## Start
 
 ```bash
-docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.10 zsh
+docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.11 zsh
 
 docker start dev-box
 
@@ -27,9 +27,7 @@ sudo chown 777 /home/ricky/codespace
 ```bash
 ssh-keygen -t ed25519 -C "rickkky@foxmail.com"
 
-eval `ssh-agent -s`
-
 ssh-add ~/.ssh/id_ed25519
 ```
 
-[Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+> [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
