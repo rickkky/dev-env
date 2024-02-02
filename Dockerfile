@@ -35,7 +35,8 @@ RUN git config --global user.name "rickkky" \
     && git config --global core.editor vim \
     && git config --global core.ignorecase false \
     && git config --global core.autocrlf input \
-    && git config --global core.safecrlf true
+    && git config --global core.safecrlf true \
+    && git config --global init.defaultBranch main
 
 # prepare zsh
 RUN sh -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
@@ -62,6 +63,7 @@ RUN curl -o- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/v0
     && source ~/.zshrc \
     && nvm install --lts \
     && nvm use --lts \
-    && corepack enable
+    && corepack enable \
+    && pnpm setup
 
 VOLUME [ "/home/ricky/codespace" ]
