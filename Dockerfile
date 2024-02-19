@@ -39,17 +39,17 @@ RUN git config --global user.name "rickkky" \
     && git config --global init.defaultBranch main
 
 # prepare zsh
-RUN sh -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     # change theme
     && sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' ~/.zshrc \
     # enable display zh_CN chars
     && echo '\nexport LC_CTYPE="zh_CN.UTF-8"' >> ~/.zshrc \
     # install zsh-autosuggestion plugin
-    && git clone https://ghproxy.com/https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
+    && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
     # change autosuggestion config
     && echo '\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"' >> ~/.zshrc \
     # install zsh-syntax-highlighting plugin
-    && git clone https://ghproxy.com/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
+    && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
     # set plugins
     && sed -i 's/plugins=(git)/plugins=(git ssh-agent zsh-syntax-highlighting zsh-autosuggestions)/g' ~/.zshrc \
     # change default shell
@@ -59,7 +59,7 @@ RUN sh -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/oh
 SHELL ["/bin/zsh", "-c"]
 
 # install nvm and node
-RUN curl -o- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
     && source ~/.zshrc \
     && nvm install --lts \
     && nvm use --lts \

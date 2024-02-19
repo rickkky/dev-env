@@ -6,6 +6,11 @@
 docker build --no-cache -t rickkky/dev-env:0.0.11 .
 ```
 
+### Github Proxy
+
+- https://ghproxy.com/
+- https://mirror.ghproxy.com/
+
 ## Start
 
 ```bash
