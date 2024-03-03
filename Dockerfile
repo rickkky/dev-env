@@ -36,7 +36,8 @@ RUN git config --global user.name "rickkky" \
     && git config --global core.ignorecase false \
     && git config --global core.autocrlf input \
     && git config --global core.safecrlf true \
-    && git config --global init.defaultBranch main
+    && git config --global init.defaultBranch main \
+    && git config --global core.pager "less -iRFX"
 
 # prepare zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
