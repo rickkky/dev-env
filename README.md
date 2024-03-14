@@ -36,3 +36,11 @@ ssh-add ~/.ssh/id_ed25519
 ```
 
 > [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+## Rust
+
+```bash
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+```
+
+> [Install Rust](https://www.rust-lang.org/tools/install)
