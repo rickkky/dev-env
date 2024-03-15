@@ -10,7 +10,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 ENV DEBIAN_FRONTEND=noninteractive
 # install basic deps
 RUN apt-get update \
-    && apt-get install -y zsh git vim sudo curl iputils-ping tzdata language-pack-zh-hans \
+    && apt-get install -y zsh git vim sudo curl build-essential iputils-ping tzdata language-pack-zh-hans \
     # clean apt cache
     && rm -rf /var/lib/apt/lists/*
 
