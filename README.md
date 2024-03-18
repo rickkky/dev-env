@@ -27,6 +27,47 @@ Rewrite the permission of codespace volume:
 sudo chown 777 /home/ricky/codespace
 ```
 
+## Terminal Request Proxy
+
+假设代理端口为 `7890`。
+
+### PowerShell
+
+```bash
+# Check the environment variables.
+ls env:
+
+# Setup proxy.
+$env:ALL_PROXY="http://127.0.0.1:7890"
+# or
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+# Reset proxy.
+$env:ALL_PROXY=""
+# or
+$env:HTTP_PROXY=""
+$env:HTTPS_PROXY=""
+```
+
+### WSL
+
+```bash
+#!/bin/bash
+host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+export ALL_PROXY="http://$host_ip:7890"
+```
+
+Or add the following settings to `~/.wslconfig` on Windows11.
+
+```bash
+networkingMode=mirrored
+dnsTunneling=true
+autoProxy=true
+```
+
+> [Accessing network applications with WSL](https://learn.microsoft.com/en-us/windows/wsl/networking)
+
 ## SSH
 
 ```bash
