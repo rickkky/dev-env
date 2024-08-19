@@ -57,9 +57,12 @@ $env:HTTPS_PROXY=""
 ### WSL
 
 ```bash
-#!/bin/bash
+# Setup proxy.
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
 export ALL_PROXY="http://$host_ip:7890"
+
+# Reset proxy.
+unset ALL_PROXY
 ```
 
 Or add the following settings to `~/.wslconfig` on Windows11.
