@@ -18,17 +18,17 @@ docker build --no-cache -t rickkky/dev-env:0.0.11 .
 ## Start
 
 ```bash
-docker create --name dev-box -h dev-box -u ricky -v codespace:/home/ricky/codespace -it rickkky/dev-env:0.0.11 zsh
+docker create --name dev-box -h dev-box -u ricky -v code:/home/ricky/code -it rickkky/dev-env:0.0.11 zsh
 
 docker start dev-box
 
 docker exec -it dev-box zsh
 ```
 
-Rewrite the permission of codespace volume:
+Rewrite the permission of code volume:
 
 ```bash
-sudo chown 777 /home/ricky/codespace
+sudo chown 777 /home/ricky/code
 ```
 
 ## Terminal Request Proxy
@@ -95,3 +95,23 @@ $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 ```
 
 > [Install Rust](https://www.rust-lang.org/tools/install)
+
+## Fnm
+
+> [Fast Node Manager (fnm)](https://github.com/Schniz/fnm)
+
+## PowerShell
+
+> - oh-my-posh
+
+To create the profile file you can run this in PowerShell:
+
+```
+if (-not (Test-Path $profile)) { New-Item $profile -Force }
+```
+
+To edit your profile run this in PowerShell:
+
+```
+Invoke-Item $profile
+```

@@ -10,7 +10,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 ENV DEBIAN_FRONTEND=noninteractive
 # install basic deps
 RUN apt-get update \
-    && apt-get install -y zsh git vim sudo curl build-essential iputils-ping tzdata language-pack-zh-hans \
+    && apt-get install -y zsh git vim sudo curl unzip build-essential iputils-ping tzdata language-pack-zh-hans \
     # clean apt cache
     && rm -rf /var/lib/apt/lists/*
 
@@ -60,13 +60,13 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 SHELL ["/bin/zsh", "-c"]
 
 # install nvm and node
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
+RUN curl -fsSL https://fnm.vercel.app/install | bash \
+    && sed -i 's/eval "`fnm env`"/eval "$(fnm env --use-on-cd --shell zsh)"/g' ~/.zshrc \
     && source ~/.zshrc \
-    && nvm install --lts \
-    && nvm use --lts \
-    && corepack enable \
+    && fnm env --corepack-enabled \
+    && fnm install 20 \
+    && fnm use 20 \
     && pnpm setup \
-    && pnpm config set registry https://registry.npmmirror.com/ \
-    && pnpm add -g nrm
+    && pnpm install -g nrm
 
 VOLUME [ "/home/ricky/codespace" ]
